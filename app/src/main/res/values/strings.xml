@@ -1,3 +1,53 @@
 <resources>
     <string name="app_name">NDJsonParser</string>
+    
+    <!-- Main Screen -->
+    <string name="app_title">NDJSON Parser</string>
+    <string name="app_subtitle">Parse, filter, and convert NDJSON files</string>
+    <string name="no_file_selected">No file selected</string>
+    <string name="select_file_hint">Select an NDJSON file to get started</string>
+    <string name="file_downloaded_success">File downloaded successfully!</string>
+    
+    <!-- File Picker -->
+    <string name="select_ndjson_file">Select NDJSON File</string>
+    
+    <!-- Filter Section -->
+    <string name="filter_data">Filter Data</string>
+    <string name="filter_key_label">Key</string>
+    <string name="filter_key_placeholder">Enter key name (e.g., name, id)</string>
+    <string name="filter_value_label">Value (optional)</string>
+    <string name="filter_value_placeholder">Enter value to filter</string>
+    <string name="apply_filter">Apply Filter</string>
+    <string name="clear_filter">Clear</string>
+    
+    <!-- Download Buttons -->
+    <string name="download_json">JSON</string>
+    <string name="download_csv">CSV</string>
+    
+    <!-- Data Display -->
+    <string name="item_count">%1$d %2$s</string>
+    <string name="item_singular">Item</string>
+    <string name="item_plural">Items</string>
+    <string name="no_data_to_display">No data to display</string>
+    <string name="item_label">Item %1$d</string>
+    <string name="fields_count">%1$d fields</string>
+    
+    <!-- Error Messages -->
+    <string name="error_reading_file">Error reading file: %1$s</string>
+    <string name="error_unknown">Unknown error</string>
+    <string name="error_file_empty">File is empty or contains no valid JSON objects.</string>
+    <string name="error_parse_failed">Failed to parse any valid JSON lines. Check file format.</string>
+    <string name="error_parse_failed_with_errors">Failed to parse file. Errors:\n%1$s</string>
+    <string name="error_more_errors">\n... and %1$d more errors</string>
+    <string name="error_failed_to_create_file">Failed to create file</string>
+    <string name="error_no_data_to_export">No data to export</string>
+    <string name="error_download_failed">Failed to download file</string>
+    
+    <!-- Content Descriptions -->
+    <string name="content_desc_upload_icon">Upload file</string>
+    <string name="content_desc_filter_icon">Filter</string>
+    <string name="content_desc_search_icon">Search</string>
+    <string name="content_desc_download_icon">Download</string>
+    <string name="content_desc_info_icon">Information</string>
+    <string name="content_desc_parser_icon">NDJSON Parser</string>
 </resources>

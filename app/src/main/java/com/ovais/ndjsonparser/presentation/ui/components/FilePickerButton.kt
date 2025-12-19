@@ -15,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.ovais.ndjsonparser.R
 
@@ -41,12 +42,12 @@ fun FilePickerButton(
     ) {
         Image(
             painter = painterResource(R.drawable.ic_upload),
-            contentDescription = null,
+            contentDescription = stringResource(R.string.content_desc_upload_icon),
             modifier = Modifier.size(20.dp)
         )
         Spacer(modifier = Modifier.width(8.dp))
         Text(
-            text = "Select NDJSON File",
+            text = stringResource(R.string.select_ndjson_file),
             style = MaterialTheme.typography.labelLarge,
             fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold
         )

@@ -18,6 +18,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.ovais.ndjsonparser.R
 import com.ovais.ndjsonparser.ui.theme.ButtonText
@@ -56,12 +57,12 @@ fun DownloadButtons(
             ) {
                 Image(
                     painter = painterResource(R.drawable.ic_download),
-                    contentDescription = null,
+                    contentDescription = stringResource(R.string.content_desc_download_icon),
                     modifier = Modifier.size(18.dp)
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = "JSON",
+                    text = stringResource(R.string.download_json),
                     style = MaterialTheme.typography.labelLarge,
                     fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold
                 )
@@ -79,12 +80,12 @@ fun DownloadButtons(
             ) {
                 Image(
                     painter = painterResource(R.drawable.ic_download),
-                    contentDescription = null,
+                    contentDescription = stringResource(R.string.content_desc_download_icon),
                     modifier = Modifier.size(18.dp)
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = "CSV",
+                    text = stringResource(R.string.download_csv),
                     style = MaterialTheme.typography.labelLarge,
                     fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold
                 )

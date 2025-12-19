@@ -27,6 +27,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -38,7 +39,6 @@ import com.ovais.ndjsonparser.presentation.ui.components.FilePickerButton
 import com.ovais.ndjsonparser.presentation.ui.components.FilterSection
 import com.ovais.ndjsonparser.presentation.viewmodel.NDJsonViewModel
 import com.ovais.ndjsonparser.ui.theme.Primary
-import com.ovais.ndjsonparser.ui.theme.Secondary
 
 @Composable
 fun NDJsonParserScreen(
@@ -47,6 +47,7 @@ fun NDJsonParserScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val snackbarHostState = remember { SnackbarHostState() }
+    val successMessage = stringResource(R.string.file_downloaded_success)
 
     LaunchedEffect(uiState.errorMessage) {
         uiState.errorMessage?.let {
@@ -57,7 +58,7 @@ fun NDJsonParserScreen(
 
     LaunchedEffect(uiState.downloadSuccess) {
         if (uiState.downloadSuccess) {
-            snackbarHostState.showSnackbar("File downloaded successfully!")
+            snackbarHostState.showSnackbar(successMessage)
             viewModel.clearDownloadSuccess()
         }
     }
@@ -91,19 +92,19 @@ fun NDJsonParserScreen(
                 ) {
                     Image(
                         painter = painterResource(R.drawable.ic_parser),
-                        contentDescription = null,
+                        contentDescription = stringResource(R.string.content_desc_parser_icon),
                         modifier = Modifier
                             .height(48.dp)
                             .padding(bottom = 8.dp),
                     )
                     Text(
-                        text = "NDJSON Parser",
+                        text = stringResource(R.string.app_title),
                         style = MaterialTheme.typography.headlineMedium,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.onSurface
                     )
                     Text(
-                        text = "Parse, filter, and convert NDJSON files",
+                        text = stringResource(R.string.app_subtitle),
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         textAlign = TextAlign.Center
@@ -197,14 +198,14 @@ fun NDJsonParserScreen(
                         )
                         Spacer(modifier = Modifier.height(16.dp))
                         Text(
-                            text = "No file selected",
+                            text = stringResource(R.string.no_file_selected),
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.SemiBold,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(
-                            text = "Select an NDJSON file to get started",
+                            text = stringResource(R.string.select_file_hint),
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                             textAlign = TextAlign.Center

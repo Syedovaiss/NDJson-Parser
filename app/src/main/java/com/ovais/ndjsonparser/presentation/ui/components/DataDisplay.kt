@@ -24,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -50,12 +51,16 @@ fun DataDisplay(
         ) {
             Image(
                 painter = painterResource(R.drawable.ic_info),
-                contentDescription = null,
+                contentDescription = stringResource(R.string.content_desc_info_icon),
                 modifier = Modifier.size(24.dp)
             )
             Spacer(modifier = Modifier.width(12.dp))
             Text(
-                text = "${jsonObjects.size} ${if (jsonObjects.size == 1) "Item" else "Items"}",
+                text = stringResource(
+                    R.string.item_count,
+                    jsonObjects.size,
+                    if (jsonObjects.size == 1) stringResource(R.string.item_singular) else stringResource(R.string.item_plural)
+                ),
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onSurface
@@ -70,7 +75,7 @@ fun DataDisplay(
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = "No data to display",
+                    text = stringResource(R.string.no_data_to_display),
                     style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -115,14 +120,14 @@ fun DataDisplay(
                                 }
                                 Spacer(modifier = Modifier.width(12.dp))
                                 Text(
-                                    text = "Item ${index + 1}",
+                                    text = stringResource(R.string.item_label, index + 1),
                                     style = MaterialTheme.typography.titleSmall,
                                     fontWeight = FontWeight.SemiBold,
                                     color = MaterialTheme.colorScheme.onSurface
                                 )
                             }
                             Text(
-                                text = "${jsonObject.data.size} fields",
+                                text = stringResource(R.string.fields_count, jsonObject.data.size),
                                 style = MaterialTheme.typography.labelSmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )

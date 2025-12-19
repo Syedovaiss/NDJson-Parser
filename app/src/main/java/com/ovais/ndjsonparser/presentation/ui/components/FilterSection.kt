@@ -25,6 +25,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.ovais.ndjsonparser.R
 import com.ovais.ndjsonparser.ui.theme.CardBackground
@@ -67,12 +68,12 @@ fun FilterSection(
             ) {
                 Image(
                     painter = painterResource(R.drawable.ic_filter),
-                    contentDescription = null,
+                    contentDescription = stringResource(R.string.content_desc_filter_icon),
                     modifier = Modifier.size(24.dp)
                 )
                 Spacer(modifier = Modifier.width(12.dp))
                 Text(
-                    text = "Filter Data",
+                    text = stringResource(R.string.filter_data),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSurface
@@ -84,12 +85,12 @@ fun FilterSection(
             OutlinedTextField(
                 value = key,
                 onValueChange = { key = it },
-                label = { Text("Key") },
-                placeholder = { Text("Enter key name (e.g., name, id)") },
+                label = { Text(stringResource(R.string.filter_key_label)) },
+                placeholder = { Text(stringResource(R.string.filter_key_placeholder)) },
                 leadingIcon = {
                     Image(
                         painter = painterResource(R.drawable.ic_search),
-                        contentDescription = null,
+                        contentDescription = stringResource(R.string.content_desc_search_icon),
                         modifier = Modifier.size(20.dp)
                     )
                 },
@@ -107,8 +108,8 @@ fun FilterSection(
             OutlinedTextField(
                 value = value,
                 onValueChange = { value = it },
-                label = { Text("Value (optional)") },
-                placeholder = { Text("Enter value to filter") },
+                label = { Text(stringResource(R.string.filter_value_label)) },
+                placeholder = { Text(stringResource(R.string.filter_value_placeholder)) },
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(12.dp),
                 colors = OutlinedTextFieldDefaults.colors(
@@ -132,7 +133,7 @@ fun FilterSection(
                         containerColor = MaterialTheme.colorScheme.primary
                     )
                 ) {
-                    Text("Apply Filter")
+                    Text(stringResource(R.string.apply_filter))
                 }
 
                 if (isFilterActive) {
@@ -141,7 +142,7 @@ fun FilterSection(
                         modifier = Modifier.weight(1f),
                         shape = RoundedCornerShape(12.dp)
                     ) {
-                        Text("Clear")
+                        Text(stringResource(R.string.clear_filter))
                     }
                 }
             }
