@@ -16,13 +16,13 @@ class DownloadFileUseCase(
 ) {
     suspend operator fun invoke(
         jsonObjects: List<JsonObject>,
-        format: FileFormat
+        format: FileFormat,
+        fileName: String
     ): Result<Uri> {
         val content = when (format) {
             FileFormat.JSON -> convertToJsonUseCase(jsonObjects)
             FileFormat.CSV -> convertToCsvUseCase(jsonObjects)
         }
-        val fileName = "ndjson_export.${format.name.lowercase()}"
         return repository.saveFile(content, fileName, format)
     }
 }

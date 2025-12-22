@@ -16,7 +16,9 @@ data class NDJsonUiState(
     val isFilterActive: Boolean = false,
     val selectedFileUri: android.net.Uri? = null,
     val downloadSuccess: Boolean = false,
-    val downloadError: String? = null
+    val downloadError: String? = null,
+    val showFileNameDialog: Boolean = false,
+    val pendingDownloadFormat: FileFormat? = null
 ) {
     val displayObjects: List<JsonObject>
         get() = if (isFilterActive) filteredObjects else jsonObjects

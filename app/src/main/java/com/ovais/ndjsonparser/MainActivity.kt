@@ -14,14 +14,15 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        
+
         val viewModel = AppModule.provideNDJsonViewModel(this)
-        
+
         setContent {
             NDJsonParserTheme {
                 NDJsonParserScreen(
                     viewModel = viewModel,
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier
+                        .fillMaxSize()
                 )
             }
         }
