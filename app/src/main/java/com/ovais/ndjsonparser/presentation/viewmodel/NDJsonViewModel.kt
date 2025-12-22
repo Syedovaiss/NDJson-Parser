@@ -101,25 +101,48 @@ class NDJsonViewModel(
         }
     }
 
-    fun downloadFile(format: FileFormat) {
-        viewModelScope.launch {
-            val objectsToExport = _uiState.value.displayObjects
-            if (objectsToExport.isEmpty()) {
-                _uiState.update {
-                    it.copy(downloadError = "No data to export")
-                }
-                return@launch
+    fun showFileNameDialog(format: FileFormat) {
+        val objectsToExport = _uiState.value.displayObjects
+        if (objectsToExport.isEmpty()) {
+            _uiState.update {
+                it.copy(downloadError = "No data to export")
             }
+            return
+        }
+
+        _uiState.update {
+            it.copy(
+                showFileNameDialog = true,
+                pendingDownloadFormat = format
+            )
+        }
+    }
+
+    fun dismissFileNameDialog() {
+        _uiState.update {
+            it.copy(
+                showFileNameDialog = false,
+                pendingDownloadFormat = null
+            )
+        }
+    }
+
+    fun downloadFile(fileName: String) {
+        viewModelScope.launch {
+            val format = _uiState.value.pendingDownloadFormat ?: return@launch
+            val objectsToExport = _uiState.value.displayObjects
 
             _uiState.update {
                 it.copy(
                     isLoading = true,
                     downloadError = null,
-                    downloadSuccess = false
+                    downloadSuccess = false,
+                    showFileNameDialog = false,
+                    pendingDownloadFormat = null
                 )
             }
 
-            downloadFileUseCase(objectsToExport, format)
+            downloadFileUseCase(objectsToExport, format, fileName)
                 .onSuccess { uri ->
                     _uiState.update {
                         it.copy(

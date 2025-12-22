@@ -35,6 +35,7 @@ import com.ovais.ndjsonparser.R
 import com.ovais.ndjsonparser.domain.model.FileFormat
 import com.ovais.ndjsonparser.presentation.ui.components.DataDisplay
 import com.ovais.ndjsonparser.presentation.ui.components.DownloadButtons
+import com.ovais.ndjsonparser.presentation.ui.components.FileNameDialog
 import com.ovais.ndjsonparser.presentation.ui.components.FilePickerButton
 import com.ovais.ndjsonparser.presentation.ui.components.FilterSection
 import com.ovais.ndjsonparser.presentation.viewmodel.NDJsonViewModel
@@ -162,10 +163,10 @@ fun NDJsonParserScreen(
                 // Download Buttons
                 DownloadButtons(
                     onDownloadJson = {
-                        viewModel.downloadFile(FileFormat.JSON)
+                        viewModel.showFileNameDialog(FileFormat.JSON)
                     },
                     onDownloadCsv = {
-                        viewModel.downloadFile(FileFormat.CSV)
+                        viewModel.showFileNameDialog(FileFormat.CSV)
                     },
                     modifier = Modifier.padding(horizontal = 16.dp)
                 )
@@ -175,9 +176,7 @@ fun NDJsonParserScreen(
                 // Data Display
                 DataDisplay(
                     jsonObjects = uiState.displayObjects,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(1f, fill = false)
+                    modifier = Modifier.fillMaxWidth()
                 )
             } else if (!uiState.isLoading && uiState.errorMessage == null) {
                 // Empty State
@@ -213,6 +212,20 @@ fun NDJsonParserScreen(
                     }
                 }
             }
+        }
+        
+        // File Name Dialog
+        if (uiState.showFileNameDialog && uiState.pendingDownloadFormat != null) {
+            FileNameDialog(
+                format = uiState.pendingDownloadFormat!!,
+                defaultFileName = "ndjson_export",
+                onDismiss = {
+                    viewModel.dismissFileNameDialog()
+                },
+                onConfirm = { fileName ->
+                    viewModel.downloadFile(fileName)
+                }
+            )
         }
     }
 }

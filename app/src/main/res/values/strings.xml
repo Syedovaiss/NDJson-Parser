@@ -24,6 +24,14 @@
     <string name="download_json">JSON</string>
     <string name="download_csv">CSV</string>
     
+    <!-- File Name Dialog -->
+    <string name="dialog_save_file_title">Save File</string>
+    <string name="dialog_save_file_message">Enter a name for the %1$s file:</string>
+    <string name="dialog_file_name_label">File Name</string>
+    <string name="dialog_file_name_placeholder">my_file</string>
+    <string name="dialog_save">Save</string>
+    <string name="dialog_cancel">Cancel</string>
+    
     <!-- Data Display -->
     <string name="item_count">%1$d %2$s</string>
     <string name="item_singular">Item</string>

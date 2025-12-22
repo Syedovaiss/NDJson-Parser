@@ -6,17 +6,18 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
-import com.ovais.ndjsonparser.di.AppModule
 import com.ovais.ndjsonparser.presentation.ui.screen.NDJsonParserScreen
+import com.ovais.ndjsonparser.presentation.viewmodel.NDJsonViewModel
 import com.ovais.ndjsonparser.ui.theme.NDJsonParserTheme
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
+    private val viewModel: NDJsonViewModel by viewModel()
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        
-        val viewModel = AppModule.provideNDJsonViewModel(this)
-        
+
         setContent {
             NDJsonParserTheme {
                 NDJsonParserScreen(
