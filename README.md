@@ -165,6 +165,43 @@ This project follows **Clean Architecture** principles with **MVVM** pattern and
 
 ---
 
+## 📦 Add to Your Project
+
+### Using JitPack
+
+You can add this library to your Android project using JitPack.
+
+#### Step 1: Add JitPack Repository
+
+Add the JitPack repository to your `settings.gradle.kts` (or `settings.gradle`):
+
+```kotlin
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
+}
+```
+
+#### Step 2: Add Dependency
+
+Add the dependency to your `app/build.gradle.kts` (or `app/build.gradle`):
+
+```kotlin
+dependencies {
+    implementation("com.github.Syedovaiss:NDJson-Parser:1.0.1")
+}
+```
+
+#### Step 3: Sync Project
+
+- Sync your Gradle files
+- The library will be downloaded and added to your project
+
+---
+
 ## 📖 Usage
 
 ### 1. Select a File
@@ -278,6 +315,8 @@ Contributions are welcome! Please follow these steps:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+Copyright (c) 2024 Syed Ovais Akhtar
+
 ---
 
 ## 👤 Author
@@ -286,6 +325,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - GitHub: [@syedovaiss](https://github.com/syedovaiss)
 - LinkedIn: [Syed Ovais Akhtar](https://linkedin.com/in/syedovaisakhtar)
+- Medium: [@syedovaiss](https://medium.com/@syedovaiss)
 
 ---
 
