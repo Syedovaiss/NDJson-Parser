@@ -11,7 +11,7 @@ import com.ovais.ndjsonparser.presentation.viewmodel.NDJsonViewModel
 import com.ovais.ndjsonparser.ui.theme.NDJsonParserTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : ComponentActivity() {
+class NDJsonParserActivity : ComponentActivity() {
     private val viewModel: NDJsonViewModel by viewModel()
     
     override fun onCreate(savedInstanceState: Bundle?) {
